@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/dom-speech-recognition": "^0.0.4",
-    "lucide-react": "^0.452.0",
     "@ai-sdk/amazon-bedrock": "^0.0.29",
+    "@types/dom-speech-recognition": "^0.0.4",
     "ai": "^3.4.9",
+    "lucide-react": "^0.452.0",
     "network-as-code": "^3.0.0",
     "next": "14.2.15",
     "react": "^18",
