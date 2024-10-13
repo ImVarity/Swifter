@@ -1,4 +1,5 @@
 "use client";
+import { fetchLlama } from "@/bedrock/fetch";
 import { getLLM } from "@/bedrock/main";
 import { randomContacts, randomProfile } from "@/profiles/main";
 import { getLocation } from "@/tmobile/main";
@@ -28,19 +29,12 @@ const TextBox = () => {
     if (!profile || !contacts) return; // Ensure both profile and contacts are set
     setLoading(true);
 
-    // Call LLM for the prompt response
-    const generatedText = await getLLM(
-      prompt + " list ONLY the top 3 things to do in this situation in 1. 2. 3."
-    );
 
-    // Get the location using the profile's latitude and longitude
-    const located = await getLLM(
-      `where am I with these latitude and longitude ${profile.latitude}, ${profile.longitude}? only give the location`
-    );
-    setLocation(located);
+    const data = await fetchLlama({ prompt, profile })
+    setLocation(data.located);
 
     // Update the response
-    setResponse(generatedText);
+    setResponse(data.generatedText);
     setLoading(false);
     setInputValue(""); // Clear the input field after submission
     console.log(response)
