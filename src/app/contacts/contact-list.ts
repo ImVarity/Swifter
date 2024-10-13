@@ -1,7 +1,3 @@
-import { IconType } from 'react-icons'
-import {FaUser, FaHome, FaUsers} from 'react-icons/fa'
-
-
 type contact = {
     name: string,
     phone: string,

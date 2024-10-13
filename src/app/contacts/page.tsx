@@ -11,7 +11,7 @@ export default function Contacts () {
       {/* Header */}
       <header className="flex justify-center items-center mb-8">
         <h1 className="text-5xl font-bold absolute left-3">
-          <Link href="/tailwind">
+          <Link href="/">
             <button>
               <div className="w-12 h-12 rounded-full overflow-hidden">
                 <img src="/leftArrow.jpg" alt="Profile" className="w-full h-full" />
