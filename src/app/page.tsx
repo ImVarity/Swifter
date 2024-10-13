@@ -35,7 +35,7 @@ export default function Home() {
     console.log(loc.latitude, loc.longitude)
     
     localStorage.setItem("generatedText", data.generatedText)
-    localStorage.setItem("location", data.located)
+    localStorage. setItem("location", data.located)
 
     router.push('/result')
   }
