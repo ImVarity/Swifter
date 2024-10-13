@@ -1,23 +1,40 @@
-import { getLocation } from "@/tmobile/main";
-import Image from "next/image";
-import { getLLM } from "@/bedrock/main";
-import TextBox from "@/app/components/TextBox";
-import SpeechToText from "@/audio/speech-to-text";
-import TextToSpeech from "@/audio/text-to-speech";
+'use client'
 
-export default async function Home() {
-  const location = await getLocation();
+import { useState } from "react";
+import { useVoiceToText } from "react-speakup";
 
-  console.log(location)
+import Recording from "./components/recording";
+import SOS from "./components/sos";
 
+export default function Home() {
+  const [listening, setListening] = useState<boolean>(false)
 
+  const { startListening, stopListening, transcript } = useVoiceToText({
+    continuous: true,
+    lang: "en-US",
+  });
+
+  const start = () => {
+    console.log("Start")
+    setListening(true)
+    startListening()
+  }
+
+  const end = () => {
+    console.log("END")
+    setListening(false)
+    stopListening()
+  }
 
   return (
-    <div className="flex justify-center items-center flex-col">
-      <SpeechToText />
-      <TextToSpeech />
-      <TextBox />
+    <div>
+    {
+      listening
+      ? 
+        <Recording handleClick={start}/>
+      : 
+        <SOS handleClick={end}/>
+    }
     </div>
-
   );
 }
