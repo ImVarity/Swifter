@@ -12,7 +12,7 @@ export async function getLLM(prompt: string) {
       });
 
 
-    const model = bedrock('anthropic.claude-3-haiku-20240307-v1:0');
+    const model = bedrock('cohere.command-text-v14');
 
 
     const fixedQ = prompt;

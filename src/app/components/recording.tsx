@@ -36,6 +36,8 @@ export default function Recording ({ handleClick }: { handleClick: () => void })
             <RecordingCircle />
         </button>
 
+        
+
 
 
       <footer className="bg-white shadow-lg rounded-t-lg fixed bottom-0 left-0 right-0 flex justify-around p-3">

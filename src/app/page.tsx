@@ -19,6 +19,17 @@ export default function Home() {
     lang: "en-US",
   });
 
+  const submit = async (prompt: string) => {
+    const loc = await getLocation()
+    const data = await fetchLlama({ prompt, latitude: loc.latitude, longitude: loc.longitude})
+    console.log(loc.latitude, loc.longitude)
+    
+    localStorage.setItem("generatedText", data.generatedText)
+    localStorage. setItem("location", data.located)
+
+    router.push('/result')
+  }
+
   const start = () => {
     console.log("Start")
     setListening(true)
@@ -30,14 +41,7 @@ export default function Home() {
     setListening(false)
     stopListening()
 
-    const loc = await getLocation()
-    const data = await fetchLlama({ prompt: transcript, latitude: loc.latitude, longitude: loc.longitude})
-    console.log(loc.latitude, loc.longitude)
-    
-    localStorage.setItem("generatedText", data.generatedText)
-    localStorage.setItem("location", data.located)
-
-    router.push('/result')
+    await submit(transcript)
   }
 
   return (
@@ -48,7 +52,7 @@ export default function Home() {
         ?
           <Recording handleClick={end}/>
         :
-          <SOS handleClick={start}/>
+          <SOS handleClick={start} outerSubmit={submit}/>
       }
     </div>
   );

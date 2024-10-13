@@ -4,10 +4,11 @@ import React from 'react'
 import Link from 'next/link'
 import {FaUser, FaHome, FaUsers} from 'react-icons/fa'
 import Infobox from './Infobox'
+import TextBox from './TextBox'
 
 
 
-export default function SOS ({ handleClick }: { handleClick: () => void}) {
+export default function SOS ({ handleClick, outerSubmit }: { handleClick: () => void, outerSubmit : (p: string) => void}) {
     return (
         <div>
         <header className="bg-white shadow-md sticky top-0 z-10">
@@ -25,7 +26,7 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
         </header>
 
 
-        <main className= "max-w4x.mx-auto">
+        <div className= "">
           <section id= "hero" className="flex flex-col-reverse justify-center sm:flex-row p-10 items-center gap-8 mt-20">
             <article className= "sm:w-1/2">
               <h2 className="max-w-md text-4xl font-bold text-center sm:text-3xl sm:text-left text-slate-900 dark:text-white">
@@ -41,11 +42,15 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
 
 
       {/* Emergency Button with more layers and custom pulsing */}
-        <button onClick={() => handleClick()}>
+        <button onClick={handleClick}>
             <Circle/>
         </button>
 
+        <div className='flex items-center justify-center absolute bottom-[3.7rem] left-[41rem]'>
 
+          
+            <TextBox outerSubmitFunc={outerSubmit}/>
+        </div>
 
 
 
@@ -72,7 +77,7 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
 
 
 
-        </main>
+        </div>
 
       </div>
 
