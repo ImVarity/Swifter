@@ -1,5 +1,6 @@
 // Contacts.js
-import React from "react";
+import React from "react"
+import Link from 'next/link'
 
 const Contacts = () => {
   const contacts = [
@@ -12,8 +13,17 @@ const Contacts = () => {
   return (
     <div className="bg-white h-screen p-6">
       {/* Header */}
-      <header className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">CONTACTS</h1>
+      <header className="flex justify-center items-center mb-8">
+        <h1 className="text-5xl font-bold absolute left-3">
+          <Link href="/tailwind">
+            <button>
+              <div className="w-12 h-12 rounded-full overflow-hidden">
+                <img src="/leftArrow.jpg" alt="Profile" className="w-full h-full" />
+              </div>
+            </button>
+          </Link>
+        </h1>
+        <h1 className="text-2xl font-bold justify-center">CONTACTS</h1>
         <button>
           {/* Add a search or edit icon here */}
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
