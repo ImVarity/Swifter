@@ -30,7 +30,7 @@ export default function Contacts () {
 
       {/* Contacts List */}
       <div className="mb-8">
-        <p className="text-lg font-bold">4 CONTACTS</p>
+        <p className="text-lg font-bold">3 CONTACTS</p>
         {contacts.map((contact, index) => (
           <div key={index} className="flex items-center justify-between p-4 bg-gray-100 rounded-lg mt-4">
             <div className="flex items-center">
