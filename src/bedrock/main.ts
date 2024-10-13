@@ -12,7 +12,7 @@ export async function getLLM(prompt: string) {
       });
 
 
-    const model = bedrock('anthropic.claude-instant-v1');
+    const model = bedrock('anthropic.claude-3-haiku-20240307-v1:0');
 
 
     const fixedQ = prompt;
@@ -21,6 +21,8 @@ export async function getLLM(prompt: string) {
         model: model,
         prompt: fixedQ,
       });
+
+    console.log(text);
 
     return text;
 }

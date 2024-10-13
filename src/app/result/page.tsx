@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Phone } from 'lucide-react'
 
 export default function Page () {
@@ -13,6 +13,15 @@ export default function Page () {
         "+13422340303",
         "+19083028182"
     ])
+    
+    useEffect(() => {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        let loc = localStorage.getItem("location") || "";
+        setLocation(loc)
+        let generatedText = localStorage.getItem("generatedText") || "";
+        setInstructions(generatedText);
+      }
+    }, []);
 
     return (
         <div className="flex flex-col w-full h-screen bg-white items-center justify-center">
@@ -51,7 +60,7 @@ function ModernBox ({bodyText, location} : {bodyText: string, location: string})
       <div className="flex justify-center items-center mt-2">
         <div className="h-[30rem] w-[25rem] bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 shadow-lg rounded-lg p-6 text-center">
             <h2 className="text-black">
-                Reporting from <b>{location}</b>
+                <b>{location}</b>
             </h2>
             <h1 className="text-2xl font-semibold text-gray-700 mb-4">
                 Instructions
