@@ -4,10 +4,11 @@ import React from 'react'
 import Link from 'next/link'
 import {FaUser, FaHome, FaUsers} from 'react-icons/fa'
 import Infobox from './Infobox'
+import TextBox from './TextBox'
 
 
 
-export default function SOS ({ handleClick }: { handleClick: () => void}) {
+export default function SOS ({ handleClick, outerSubmit }: { handleClick: () => void, outerSubmit : (p: string) => void}) {
     return (
         <div>
         <header className="bg-white shadow-md sticky top-0 z-10">
@@ -25,8 +26,8 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
         </header>
 
 
-        <main className= "max-w4x.mx-auto">
-          <section id= "hero" className="flex flex-col-reverse justify-center sm:flex-row p-10 items-center gap-8 mt-20">
+        <div className= "">
+          <section id= "hero" className="flex flex-col-reverse justify-center sm:flex-row p-10 items-center gap-8 mt-8">
             <article className= "sm:w-1/2">
               <h2 className="max-w-md text-4xl font-bold text-center sm:text-3xl sm:text-left text-slate-900 dark:text-white">
                 Are you in an <span className="text-red-500"> emergency  </span> ? 
@@ -41,11 +42,38 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
 
 
       {/* Emergency Button with more layers and custom pulsing */}
-        <button onClick={() => handleClick()}>
-            <Circle/>
-        </button>
+      <div className="flex justify-center items-center mt-2">
+          <div className="absolute top-20 inset-0 flex justify-center items-center">
+            
+              <div className="w-72 h-72 bg-red-300 rounded-full animate-pulse-slow"></div>  {/* Largest outer circle */}
+            
+          </div>
+          <div className="absolute top-20 inset-0 flex justify-center items-center">
+            <div className="w-64 h-64 bg-red-400 rounded-full animate-pulse-slow"></div>  {/* Second layer */}
+          </div>
+          <div className="absolute top-20 inset-0 flex justify-center items-center">
+            <div className="w-56 h-56 bg-red-500 rounded-full animate-pulse-slow"></div>  {/* Third layer */}
+          </div>
+          <div className="absolute top-20 inset-0 flex justify-center items-center">
+            <div className="w-48 h-48 bg-red-600 rounded-full animate-pulse-slow"></div> {/* Fourth layer */}
+          </div>
+          <div className="absolute top-20 inset-0 flex justify-center items-center">
+            <div className="w-44 h-44 bg-red-650 rounded-full flex items-center justify-center relative z-10">
+              <button className="p-20" onClick={handleClick}>
+                <span className="text-white text-5xl tracking-wideset">
+                  SOS
+                </span>
+              </button>
+              
+            </div> {/* Center static circle */}
+          </div>
+        </div>
+        
+      
 
-
+        <div className='relative flex justify-center items-center w-auto min-h-screen'>          
+            <TextBox outerSubmitFunc={outerSubmit}/>
+        </div>
 
 
 
@@ -72,7 +100,7 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
 
 
 
-        </main>
+        </div>
 
       </div>
 
@@ -81,7 +109,7 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
 
 const Circle = () => {
     return (
-      <div className="flex justify-center items-center min-h-screen mt-2">
+      <div className="flex justify-center items-center mt-2">
           <div className="absolute top-20 inset-0 flex justify-center items-center">
             <div className="w-72 h-72 bg-red-300 rounded-full animate-pulse-slow"></div>  {/* Largest outer circle */}
           </div>
@@ -96,7 +124,7 @@ const Circle = () => {
           </div>
           <div className="absolute top-20 inset-0 flex justify-center items-center">
             <div className="w-44 h-44 bg-red-650 rounded-full flex items-center justify-center relative z-10">
-              <span className="text-white text-5xl tracking-wideset">S O S</span>
+              <span className="text-white text-5xl tracking-wideset border-2 border-black">S O S</span>
             </div> {/* Center static circle */}
           </div>
         </div>

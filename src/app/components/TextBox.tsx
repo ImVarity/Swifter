@@ -1,10 +1,11 @@
 "use client";
+
 import { getLLM } from "@/bedrock/main";
 import { randomContacts, randomProfile } from "@/profiles/main";
 import { getLocation } from "@/tmobile/main";
 import React, { useEffect, useState } from "react";
 
-const TextBox = () => {
+export default function TextBox ({ outerSubmitFunc } : { outerSubmitFunc : (p: string) => void}) {
   const [inputValue, setInputValue] = useState<string>("");
   const [response, setResponse] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -13,11 +14,12 @@ const TextBox = () => {
     longitude: string;
   } | null>(null);
 
-  const [contacts, setContacts] = useState<string[] | null>(null);
+  //const [contacts, setContacts] = useState<string[] | null>(null);
 
-  const [location, setLocation] = useState<string>("");
+  //const [location, setLocation] = useState<string>("");
 
   // Fetch profile and contacts when the component mounts or after profile is updated
+  /*
   useEffect(() => {
     if (profile) {
       fetchData(inputValue);
@@ -27,7 +29,10 @@ const TextBox = () => {
   const fetchData = async (prompt: string) => {
     if (!profile || !contacts) return; // Ensure both profile and contacts are set
     setLoading(true);
+    */
 
+    
+    /*
     // Call LLM for the prompt response
     const generatedText = await getLLM(
       prompt + " list ONLY the top 3 things to do in this situation in 1. 2. 3."
@@ -44,17 +49,20 @@ const TextBox = () => {
     setLoading(false);
     setInputValue(""); // Clear the input field after submission
     console.log(response)
-  };
+    */
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    await outerSubmitFunc(inputValue)
+    /*
     // First, get the profile and contacts
     const newProfile = randomProfile();
     setProfile(newProfile);
 
     const newContacts = randomContacts(5);
     setContacts(newContacts);
+    */
 
 
   };
@@ -63,12 +71,11 @@ const TextBox = () => {
     <div className="flex justify-center items-center flex-col">
       <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
         <label htmlFor="textbox" className="font-medium text-gray-700">
-          Your Input
         </label>
         <input
           id="textbox"
           type="text"
-          placeholder="Type here..."
+          placeholder="Report here"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)} // Update the state with input value
           className="border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring focus:ring-blue-400 focus:border-blue-500"
@@ -87,7 +94,9 @@ const TextBox = () => {
           <pre className="mt-2 text-gray-800">{response}</pre>
         )}
       </div>
-      <div>
+      {
+/*
+<div>
         {loading ? (
           <p className="mt-2 text-blue-500">Loading...</p>
         ) : (
@@ -108,12 +117,13 @@ const TextBox = () => {
 
             </ul>
 
-            {/* // <p className="mt-2 text-gray-800">{contacts}</p> */}
+            {/* // <p className="mt-2 text-gray-800">{contacts}</p> }
           </div>
         )}
       </div>
+*/
+      }
+      
     </div>
   );
 };
-
-export default TextBox;

@@ -1,21 +1,17 @@
 // Contacts.js
 import React from "react"
 import Link from 'next/link'
+import { ContactList } from "./contact-list";
 
-const Contacts = () => {
-  const contacts = [
-    { name: "Joshua Lazarte", phone: "+1 (XXX) XXX XXXX" },
-    { name: "Joshua Lazarte", phone: "+1 (XXX) XXX XXXX" },
-    { name: "Joshua Lazarte", phone: "+1 (XXX) XXX XXXX" },
-    { name: "Joshua Lazarte", phone: "+1 (XXX) XXX XXXX" },
-  ];
+export default function Contacts () {
+  const contacts = ContactList
 
   return (
     <div className="bg-white h-screen p-6">
       {/* Header */}
       <header className="flex justify-center items-center mb-8">
         <h1 className="text-5xl font-bold absolute left-3">
-          <Link href="/tailwind">
+          <Link href="/">
             <button>
               <div className="w-12 h-12 rounded-full overflow-hidden">
                 <img src="/leftArrow.jpg" alt="Profile" className="w-full h-full" />
@@ -41,7 +37,7 @@ const Contacts = () => {
               <div className="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
               <div>
                 <p className="font-bold">{contact.name}</p>
-                <p>{contact.phone}</p>
+                <p>{contact.phone.substring(0,3) + " " + contact.phone.substring(3,7) + " " + contact.phone.substring(7,10)}</p>
               </div>
             </div>
             <button>
@@ -69,5 +65,3 @@ const Contacts = () => {
     </div>
   );
 };
-
-export default Contacts;
