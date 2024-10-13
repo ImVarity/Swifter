@@ -18,7 +18,7 @@ export default function Recording ({ handleClick }: { handleClick: () => void })
 
 
         <main className= "max-w4x.mx-auto">
-          <section id= "hero" className="flex flex-col-reverse justify-center sm:flex-row p-10 items-center gap-8 mt-20">
+          <section id= "hero" className="flex flex-col-reverse justify-center sm:flex-row p-10 items-center gap-8 mt-8">
             <article className= "sm:w-1/2">
               <h2 className="max-w-md text-4xl font-bold text-center sm:text-3xl sm:text-left text-slate-900 dark:text-white">
               🔴 <span className="text-red-500"> Recording </span>

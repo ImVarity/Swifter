@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react"
 import { Phone } from 'lucide-react'
 
+import { contact, ContactList } from "../contacts/contact-list"
+
 export default function Page () {
     const [location, setLocation] = useState<string>("Seattle, Washington")
     const [instructions, setInstructions] = useState<string>(
@@ -11,11 +13,10 @@ export default function Page () {
 
     const [parsed, setParsed] = useState<string[]>();
 
-    const [phoneArray, setPhoneArray] = useState<string[]>([
-        "911",
-        "+13422340303",
-        "+19083028182"
-    ])
+
+    const [phoneArray, setPhoneArray] = useState<contact[]>(
+      ContactList
+    )
     
     
     useEffect(() => {
@@ -49,10 +50,10 @@ export default function Page () {
     return (
         <div className="flex flex-col w-full h-screen bg-white items-center justify-center">
             {
-                phoneArray.map((num) => {
+                phoneArray.map((c) => {
                     return (
-                        <div key={num}>
-                            <AlertBox number={num} />
+                        <div key={c.phone}>
+                            <AlertBox ct={c} />
                         </div>
                     )
                 })
@@ -62,18 +63,18 @@ export default function Page () {
     )
 }
 
-function AlertBox({ number }: { number: string }) {
+function AlertBox({ ct }: { ct: contact }) {
     return (
       <div className="w-[25rem] bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 animate-shake">
         <div className="flex flex-row justify-between">
           <div>
           <p className="font-bold">
-            Alerting {number}
+            Alerting {ct.name}
             <span className="dot animate-jump1">.</span>
             <span className="dot animate-jump2">.</span>
             <span className="dot animate-jump3">.</span>
           </p>
-            <i>Click to cancel</i>
+            <i>{ct.phone}</i>
           </div>
           <div className="flex flex-row items-center">
             <Phone className="animate-ring" /> {/*Wiggle animation */}
@@ -87,9 +88,9 @@ function ModernBox ({bodyText, location} : {bodyText: string[], location: string
     return (
       <div className="flex justify-center items-center mt-2">
         <div className="h-[30rem] w-[25rem] bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 shadow-lg rounded-lg p-6 text-center">
-            <h2 className="text-black">
+            <p className="text-black text-xs mb-3">
                 <b>{location}</b>
-            </h2>
+            </p>
             <h1 className="text-2xl font-semibold text-gray-700 mb-4">
                 Instructions
             </h1>
@@ -104,6 +105,7 @@ function ModernBox ({bodyText, location} : {bodyText: string[], location: string
                     })
                 }
             </div>
+
         </div>
       </div>
     );

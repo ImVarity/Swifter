@@ -1,4 +1,5 @@
 "use client";
+
 import { getLLM } from "@/bedrock/main";
 import { randomContacts, randomProfile } from "@/profiles/main";
 import { getLocation } from "@/tmobile/main";
@@ -13,11 +14,12 @@ export default function TextBox ({ outerSubmitFunc } : { outerSubmitFunc : (p: s
     longitude: string;
   } | null>(null);
 
-  const [contacts, setContacts] = useState<string[] | null>(null);
+  //const [contacts, setContacts] = useState<string[] | null>(null);
 
-  const [location, setLocation] = useState<string>("");
+  //const [location, setLocation] = useState<string>("");
 
   // Fetch profile and contacts when the component mounts or after profile is updated
+  /*
   useEffect(() => {
     if (profile) {
       fetchData(inputValue);
@@ -27,9 +29,9 @@ export default function TextBox ({ outerSubmitFunc } : { outerSubmitFunc : (p: s
   const fetchData = async (prompt: string) => {
     if (!profile || !contacts) return; // Ensure both profile and contacts are set
     setLoading(true);
+    */
 
-    await outerSubmitFunc(prompt)
-
+    
     /*
     // Call LLM for the prompt response
     const generatedText = await getLLM(
@@ -48,19 +50,19 @@ export default function TextBox ({ outerSubmitFunc } : { outerSubmitFunc : (p: s
     setInputValue(""); // Clear the input field after submission
     console.log(response)
     */
-  };
-
-  
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    await outerSubmitFunc(inputValue)
+    /*
     // First, get the profile and contacts
     const newProfile = randomProfile();
     setProfile(newProfile);
 
     const newContacts = randomContacts(5);
     setContacts(newContacts);
+    */
 
 
   };

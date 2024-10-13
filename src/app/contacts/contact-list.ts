@@ -1,4 +1,4 @@
-type contact = {
+export type contact = {
     name: string,
     phone: string,
 }
@@ -16,8 +16,10 @@ export const ContactList : contact[] = [
         name: "Jungho Park",
         phone: "4253708500",
     },
+    /*
     {
         name: "Paul",
         phone: "2940842839",
     },
+    */
 ]
