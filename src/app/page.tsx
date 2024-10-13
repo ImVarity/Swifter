@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useVoiceToText } from "react-speakup";
 import { useRouter } from "next/navigation";
 
+import { sendSMS } from "@/vonage/action";
+
 import Recording from "./components/recording";
 import SOS from "./components/sos";
 import { fetchLlama } from "@/bedrock/fetch-llama";
@@ -26,6 +28,8 @@ export default function Home() {
     
     localStorage.setItem("generatedText", data.generatedText)
     localStorage. setItem("location", data.located)
+
+    await sendSMS("HELP")
 
     router.push('/result')
   }
