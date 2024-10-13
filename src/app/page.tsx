@@ -31,12 +31,11 @@ export default function Home() {
     <div className="flex flex-col">
       {
         
-        (!listening) 
+        (listening) 
         ?
-          <Recording handleClick={start}/>
+          <Recording handleClick={end}/>
         :
-          listening && <SOS handleClick={end}/>
-        
+          <SOS handleClick={start}/>
       }
     </div>
   );
