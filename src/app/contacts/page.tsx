@@ -34,10 +34,17 @@ export default function Contacts () {
         {contacts.map((contact, index) => (
           <div key={index} className="flex items-center justify-between p-4 bg-gray-100 rounded-lg mt-4">
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+              {/* Display contact image */}
+              <img
+                src={contact.img} // Dynamically set the contact image
+                alt={`${contact.name}'s avatar`}
+                className="rounded-full w-11 h-11 bg-gray-300 mr-4" // Style the image with rounded borders
+              />
               <div>
                 <p className="font-bold">{contact.name}</p>
-                <p>{contact.phone.substring(0,3) + " " + contact.phone.substring(3,7) + " " + contact.phone.substring(7,10)}</p>
+                <p>
+                  {contact.phone.substring(0, 3) + " " + contact.phone.substring(3, 7) + " " + contact.phone.substring(7, 10)}
+                </p>
               </div>
             </div>
             <button>
