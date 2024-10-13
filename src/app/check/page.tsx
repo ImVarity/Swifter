@@ -1,10 +1,16 @@
 'use client'
 
+import { useEffect, useState } from "react";
+
 export default function Page() {
-    var name = ""
-    if (typeof window !== undefined) {
-        name = localStorage.getItem("name") || ""
-    }
+    const [name, setName] = useState<string>("")
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.localStorage) {
+          let n = localStorage.getItem("name") || "";
+          setName(n)
+        }
+      }, []);
 
     return (
         <div>
