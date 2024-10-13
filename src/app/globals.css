@@ -44,3 +44,48 @@ body {
 .animate-pulse-slow {
   animation: pulse-slow 2.5s infinite;
 }
+
+@keyframes ring {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.animate-ring {
+  animation: ring 1s infinite ease-in-out;
+}
+
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0); /* Start and end at the same place */
+  }
+  50% {
+    transform: translateY(-5px); /* Jump up 10px */
+  }
+}
+
+.dot {
+  display: inline-block;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.animate-jump1 {
+  animation-name: jump;
+  animation-delay: 0s; /* First dot starts immediately */
+}
+
+.animate-jump2 {
+  animation-name: jump;
+  animation-delay: 0.2s; /* Second dot delayed */
+}
+
+.animate-jump3 {
+  animation-name: jump;
+  animation-delay: 0.4s; /* Third dot delayed more */
+}

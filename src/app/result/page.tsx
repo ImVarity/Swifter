@@ -44,11 +44,16 @@ function AlertBox({ number }: { number: string }) {
       <div className="w-[25rem] bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 animate-shake">
         <div className="flex flex-row justify-between">
           <div>
-            <p className="font-bold">Alerting {number}...</p>
+          <p className="font-bold">
+            Alerting {number}
+            <span className="dot animate-jump1">.</span>
+            <span className="dot animate-jump2">.</span>
+            <span className="dot animate-jump3">.</span>
+          </p>
             <i>Click to cancel</i>
           </div>
           <div className="flex flex-row items-center">
-            <Phone />
+            <Phone className="animate-ring" /> {/*Wiggle animation */}
           </div>
         </div>
       </div>
