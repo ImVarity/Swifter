@@ -33,7 +33,9 @@ export async function getLocation() {
     // to get location information, it's a mandatory parameter.
     // The value (integer in seconds) can be passed directly.
     // If the amount in seconds is not given, the default will be 60 seconds.
-    const location = await myDevice.getLocation(3600);
+    const location = await myDevice.getLocation(600);
+
+    return location
     
     // The location object contains fields for longitude, latitude and also elevation
     console.log(location.latitude);
