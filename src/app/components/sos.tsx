@@ -46,9 +46,7 @@ export default function SOS ({ handleClick, outerSubmit }: { handleClick: () => 
             <Circle/>
         </button>
 
-        <div className='flex items-center justify-center absolute bottom-[3.7rem] left-[41rem]'>
-
-          
+        <div className='flex justify-center items-center min-h-screen'>          
             <TextBox outerSubmitFunc={outerSubmit}/>
         </div>
 
@@ -86,7 +84,7 @@ export default function SOS ({ handleClick, outerSubmit }: { handleClick: () => 
 
 const Circle = () => {
     return (
-      <div className="flex justify-center items-center min-h-screen mt-2">
+      <div className="flex justify-center items-center mt-2">
           <div className="absolute top-20 inset-0 flex justify-center items-center">
             <div className="w-72 h-72 bg-red-300 rounded-full animate-pulse-slow"></div>  {/* Largest outer circle */}
           </div>
