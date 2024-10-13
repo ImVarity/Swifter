@@ -1,12 +1,14 @@
 'use client';
 
+import { sendVoiceMessage } from "@/sms-sender/twilio/sns-actions";
+
 import Image from "next/image";
-import { checkValues, createMessage } from "@/twilio/twilio-actions";
 
 export default function Home() {
+
   const handleClick = async () => {
-    //await checkValues()
-    await createMessage("+14253708500", "test");
+    //await sendSMSMessage("Hello")
+    await sendVoiceMessage("test")
   }
 
   return (
