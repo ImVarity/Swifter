@@ -12,7 +12,7 @@ export async function getLLM(prompt: string) {
       });
 
 
-    const model = bedrock('anthropic.claude-v2:1');
+    const model = bedrock('anthropic.claude-instant-v1');
 
 
     const fixedQ = prompt;
