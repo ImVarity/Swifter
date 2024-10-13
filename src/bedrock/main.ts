@@ -22,10 +22,11 @@ export async function getLLM(prompt: string) {
         prompt: fixedQ,
       });
 
-
-
     return text;
 }
+
+
+
 
   
 // generateRecipe().catch(console.error);
