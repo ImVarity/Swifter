@@ -17,24 +17,27 @@ export default function Home() {
   const start = () => {
     console.log("Start")
     setListening(true)
-    startListening()
+    startListening()  
   }
 
   const end = () => {
     console.log("END")
+    console.log(transcript)
     setListening(false)
     stopListening()
   }
 
   return (
-    <div>
-    {
-      listening
-      ? 
-        <Recording handleClick={start}/>
-      : 
-        <SOS handleClick={end}/>
-    }
+    <div className="flex flex-col">
+      {
+        
+        (!listening) 
+        ?
+          <Recording handleClick={start}/>
+        :
+          listening && <SOS handleClick={end}/>
+        
+      }
     </div>
   );
 }

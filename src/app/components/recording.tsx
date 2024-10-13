@@ -1,8 +1,10 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import {FaUser, FaHome, FaUsers} from 'react-icons/fa'
 
-export default function Recording ({ handleClick }: { handleClick: () => void}) {
+export default function Recording ({ handleClick }: { handleClick: () => void }) {
     return (
         <div>
         
@@ -19,9 +21,8 @@ export default function Recording ({ handleClick }: { handleClick: () => void}) 
           <section id= "hero" className="flex flex-col-reverse justify-center sm:flex-row p-10 items-center gap-8 mt-20">
             <article className= "sm:w-1/2">
               <h2 className="max-w-md text-4xl font-bold text-center sm:text-3xl sm:text-left text-slate-900 dark:text-white">
-              🔴 <span className="text-red-500"> Recording  </span>
+              🔴 <span className="text-red-500"> Recording </span>
               </h2>
-              
               <p className="text-gray-500">
                 If you are unable to speak please stay on <br />
                 the app or send us a message
@@ -31,8 +32,8 @@ export default function Recording ({ handleClick }: { handleClick: () => void}) 
 
 
       {/* Emergency Button with more layers and custom pulsing */}
-        <button onClick={handleClick}>
-            <RecordingCircle/>
+        <button onClick={() => handleClick()}>
+            <RecordingCircle />
         </button>
 
 
