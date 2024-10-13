@@ -9,18 +9,33 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/amazon-bedrock": "^0.0.29",
+    "ai": "^3.4.9",
+    "network-as-code": "^3.0.0",
+    "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.15"
+    "react-icons": "^5.3.0",
+    "source-map": "^0.7.4"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@babel/plugin-transform-runtime": "^7.25.7",
+    "@types/dom-speech-recognition": "^0.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "@types/react-speech-recognition": "^3.9.5",
     "eslint": "^8",
-    "eslint-config-next": "14.2.15"
+    "eslint-config-next": "14.2.15",
+    "lucide-react": "^0.452.0",
+    "next": "14.2.15",
+    "postcss": "^8",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-speakup": "^1.1.2",
+    "react-speech-recognition": "^3.10.0",
+    "regenerator-runtime": "^0.14.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
