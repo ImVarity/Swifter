@@ -5,6 +5,8 @@ import { useVoiceToText } from "react-speakup";
 
 import Recording from "./components/recording";
 import SOS from "./components/sos";
+import { fetchLlama } from "@/bedrock/fetch-llama";
+import { getLocation } from "@/tmobile/main";
 
 export default function Home() {
   const [listening, setListening] = useState<boolean>(false)
@@ -20,11 +22,15 @@ export default function Home() {
     startListening()  
   }
 
-  const end = () => {
+  const end = async () => {
     console.log("END")
-    console.log(transcript)
     setListening(false)
     stopListening()
+
+    const loc = await getLocation()
+    const data = await fetchLlama({ prompt: transcript, latitude: loc.latitude, longitude: loc.longitude})
+    
+    
   }
 
   return (

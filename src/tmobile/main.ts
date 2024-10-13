@@ -1,3 +1,5 @@
+'use server'
+
 import { NetworkAsCodeClient } from 'network-as-code';
  
 // Begin by creating a client for Network as Code:
