@@ -44,9 +44,9 @@ export default function SOS ({ handleClick, outerSubmit }: { handleClick: () => 
       {/* Emergency Button with more layers and custom pulsing */}
       <div className="flex justify-center items-center mt-2">
           <div className="absolute top-20 inset-0 flex justify-center items-center">
-            <button onClick={handleClick}>
+            
               <div className="w-72 h-72 bg-red-300 rounded-full animate-pulse-slow"></div>  {/* Largest outer circle */}
-            </button>
+            
           </div>
           <div className="absolute top-20 inset-0 flex justify-center items-center">
             <div className="w-64 h-64 bg-red-400 rounded-full animate-pulse-slow"></div>  {/* Second layer */}
@@ -59,14 +59,19 @@ export default function SOS ({ handleClick, outerSubmit }: { handleClick: () => 
           </div>
           <div className="absolute top-20 inset-0 flex justify-center items-center">
             <div className="w-44 h-44 bg-red-650 rounded-full flex items-center justify-center relative z-10">
-              <span className="text-white text-5xl tracking-wideset">S O S</span>
+              <button className="p-20" onClick={handleClick}>
+                <span className="text-white text-5xl tracking-wideset">
+                  SOS
+                </span>
+              </button>
+              
             </div> {/* Center static circle */}
           </div>
         </div>
         
       
 
-        <div className='flex justify-center items-center min-h-screen'>          
+        <div className='relative flex justify-center items-center w-auto min-h-screen'>          
             <TextBox outerSubmitFunc={outerSubmit}/>
         </div>
 
@@ -119,7 +124,7 @@ const Circle = () => {
           </div>
           <div className="absolute top-20 inset-0 flex justify-center items-center">
             <div className="w-44 h-44 bg-red-650 rounded-full flex items-center justify-center relative z-10">
-              <span className="text-white text-5xl tracking-wideset">S O S</span>
+              <span className="text-white text-5xl tracking-wideset border-2 border-black">S O S</span>
             </div> {/* Center static circle */}
           </div>
         </div>
