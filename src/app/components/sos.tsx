@@ -1,6 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import {FaUser, FaHome, FaUsers} from 'react-icons/fa'
+import Infobox from './Infobox'
+
+
 
 export default function SOS ({ handleClick }: { handleClick: () => void}) {
     return (
@@ -15,7 +18,7 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
             </div>
             <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200">
               <div className="w-full h-full bg-purple-500 flex justify-center items-center text-white text-xl rounded-full">
-                MA  // Changed from image to initials
+                <img className="rounded-full w-10 h-10" src="/oldLadyPFP.jpg"></img>
               </div>
             </div>
           </section>
@@ -41,6 +44,8 @@ export default function SOS ({ handleClick }: { handleClick: () => void}) {
         <button onClick={handleClick}>
             <Circle/>
         </button>
+
+
 
 
 
