@@ -1,4 +1,5 @@
 "use client";
+
 import { getLLM } from "@/bedrock/main";
 import { randomContacts, randomProfile } from "@/profiles/main";
 import { getLocation } from "@/tmobile/main";
@@ -29,7 +30,6 @@ export default function TextBox ({ outerSubmitFunc } : { outerSubmitFunc : (p: s
     setLoading(true);
 
     await outerSubmitFunc(prompt)
-
     /*
     // Call LLM for the prompt response
     const generatedText = await getLLM(
